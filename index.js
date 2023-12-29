@@ -7,9 +7,15 @@ const jwt = require("jsonwebtoken");
 const { connection } = require("./config/db");
 const { userController } = require("./routes/user.route");
 
-app.use(
-  cors()
-);
+const corsOptions = {
+  origin: "https://the-brand-wick-frontend.vercel.app", // Replace with your frontend's origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
