@@ -7,14 +7,14 @@ const jwt = require("jsonwebtoken");
 const { connection } = require("./config/db");
 const { userController } = require("./routes/user.route");
 
-const corsOptions = {
-  origin: "https://the-brand-wick-frontend.vercel.app", // Replace with your frontend's origin
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   origin: "https://the-brand-wick-frontend.vercel.app/",
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   credentials: true,
+//   optionsSuccessStatus: 204,
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 
@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
   res.status(200).send("Home Page using router");
 });
 
-app.use("/", userController);
+app.use("/user", userController);
 
 const PORT = 5050;
 

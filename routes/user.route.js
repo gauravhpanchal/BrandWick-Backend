@@ -39,7 +39,7 @@ userController.post("/register", async (req, res) => {
       phone,
     });
     await user.save();
-    res.send("Signup Successful");
+    res.status(200).json({ msg: "Signup Successful" });
   });
 });
 userController.post("/login", async (req, res) => {
