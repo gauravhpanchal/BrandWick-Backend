@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 
 app.use("/user", userController);
 
-const PORT = 5050;
+const PORT = 8080 || 4001;
 
 app.listen(PORT, async () => {
   try {
